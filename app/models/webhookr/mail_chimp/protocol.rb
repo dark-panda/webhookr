@@ -10,10 +10,10 @@ module Webhookr
         p = Rack::Utils.parse_nested_query(raw_response)
         assert_valid_packet(p)
 
-        return OpenStruct.new(:event_type => p[EVENT_KEY],
+        return [ OpenStruct.new(:event_type => p[EVENT_KEY],
                               :fired_at => p[EVENT_DATE_KEY],
                               :protocol => name,
-                              :data => OpenStruct.new(p[DATA_KEY]))
+                              :data => OpenStruct.new(p[DATA_KEY])) ]
       end
 
       def assert_valid_packet(parsed_response)
