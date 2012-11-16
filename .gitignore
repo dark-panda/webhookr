@@ -1,6 +1,7 @@
 /.ssh
 /.rvmrc
 /.rbenv-version
+*.log
 *.tmp
 *.patch
 *~
