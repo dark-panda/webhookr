@@ -5,6 +5,7 @@ module Webhookr
     end
 
     def create
+      Webhookr::ResponseHandler.process(params[:id], request.body.read)
       render :nothing => true
     end
   end
