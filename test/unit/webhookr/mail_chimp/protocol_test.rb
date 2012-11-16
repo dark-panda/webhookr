@@ -14,22 +14,22 @@ module Webhookr
     end
 
     test "should return the correct data type" do
-      response = Webhookr::MailChimp::Protocol.process(@valid_response)
+      response = Webhookr::MailChimp::Protocol.process(@valid_response).first
       assert_equal(response.event_type, @event_type)
     end
 
     test "should return the correct data packet" do
-      response = Webhookr::MailChimp::Protocol.process(@valid_response)
+      response = Webhookr::MailChimp::Protocol.process(@valid_response).first
       assert_equal(response.data.email, "gerry+agent2@zoocasa.com")
     end
 
     test "should have the correct protocol" do
-      response = Webhookr::MailChimp::Protocol.process(@valid_response)
+      response = Webhookr::MailChimp::Protocol.process(@valid_response).first
       assert_equal(response.protocol, "Webhookr::MailChimp::Protocol")
     end
 
     test "should have the correct event fired date" do
-      response = Webhookr::MailChimp::Protocol.process(@valid_response)
+      response = Webhookr::MailChimp::Protocol.process(@valid_response).first
       assert_equal(response.fired_at, @fired_at)
     end
 

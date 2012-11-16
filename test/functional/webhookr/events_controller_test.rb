@@ -18,19 +18,15 @@ module Webhookr
     end
 
     test ":get should return success" do
-      get(:show, {:id => "madrill"})
+      get(:show, {:id => "mandrill"})
       assert_response :success
     end
 
     test ":get should return empty body" do
-      get(:show, {:id => "madrill"})
+      get(:show, {:id => "mandrill"})
       assert_response :success
       assert(@response.body.blank?, "Expected an empty reponse, but got'#{@response.body}'")
     end
 
-    test ":post should return success" do
-      post(:create, {:id => "madrill"})
-      assert_response :success
-    end
   end
 end
