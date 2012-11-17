@@ -1,10 +1,1 @@
-/.ssh
-/.rvmrc
-/.rbenv-version
-*.log
-*.tmp
-*.patch
-*~
-.DS_Store
-Thumbs.db
-.vimrc_local
+README.html
