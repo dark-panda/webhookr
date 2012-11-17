@@ -10,7 +10,7 @@ module Webhookr
     end
 
     test "should not raise an exception for a valid packet" do
-      assert_nothing_raised() { Webhookr::MailChimp::Protocol.process(@valid_response) }
+      assert_nothing_raised { Webhookr::MailChimp::Protocol.process(@valid_response) }
     end
 
     test "should return the correct data type" do

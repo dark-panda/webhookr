@@ -12,7 +12,7 @@ module Webhookr
     end
 
     test "should not raise an exception for a valid packet" do
-      assert_nothing_raised() { Webhookr::Mandrill::Protocol.process(@valid_response) }
+      assert_nothing_raised { Webhookr::Mandrill::Protocol.process(@valid_response) }
     end
 
     test "should process multiple responses" do
