@@ -55,7 +55,7 @@ your business logic.
 
 ```ruby
 class Webhookr:MandrillWebhook
-  def unsubscribe(packet)
+  def on_unsubscribe(packet)
     User.find_by_email(packet.data.email).unsubscribe_all
   end
 end
@@ -75,21 +75,26 @@ rake webhookr:mandrill:url
 
 ## <a name="security"></a>Webhookr Security
 
-### Webhook security protocols
+### General security issues with webhooks
+
+A webhook by design is a http post to your application, that results in code execution.
+Having a well defined approach to adding such functionality can help ensure you don't open security issues
+within your application. webhookr uses namespacing and ... to help ensure your application security.
 
 Currently, many webhook providers do provide built-in security for their 
-webhooks - they usually occur over http, and they often have no authentication 
-mechanism. If your webhook third-party service provides hooks that way, it is 
+webhooks - they usually send the post over http, and they often have no authentication 
+or verification mechanism. If your webhook third-party service provides hooks that way, it is 
 possible for an evil person to guess your webhook URL, and attempt to wreak havoc with your system.
 
-webhookr provides a unique url for each service, via a security token that
-is used in the webhook path, to help make it hard to guess your webhook url.
+### How using webhookr can increase security
+webhookr provides a unique url for each service, via a security token that is used in the webhook path, to help make it hard to guess your webhook url.
 For example, if you were using MailChimp, your webhook url might look like: '/webhookr/mail_chimp/cdd2a24cfac821' and if you were using Mandrill, your 
-webhook might look like: '/webhookr/mandrill/de69557a4d95e7'. This will help prevent someone guessing your webhook service url.
+webhook might look like: '/webhookr/mandrill/de69557a4d95e7'. This will help prevent someone guessing your 
+webhook service url. If you are using https, the URL will be encrypted, keeping your secret_key secret.
 
-Finally, a webhook by nature, is a http post to your application, that results in code execution. Having a well defined approach to adding such functionality
-can help ensure you don't open security issues within your application.
-webhookr uses namespacing and ... to help ensure your application security.
+You can also enable http basic auth, if the third party service supports it. Note that enabling http basic auth
+affects all your webhooks, so be sure it is supported by all your third-party services.
+
 
 ## <a name="supported_services"></a>Supported Services
 
