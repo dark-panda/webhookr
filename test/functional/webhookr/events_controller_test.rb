@@ -7,16 +7,6 @@ module Webhookr
       @routes = Webhookr::Engine.routes
     end
 
-    test ":get route to events" do
-      assert_recognizes({ controller: "webhookr/events", action: "show", id: "mandrill" },
-                        { path: "/events/mandrill", method: :get })
-    end
-
-    test ":post route to events" do
-      assert_recognizes({ controller: "webhookr/events", action: "create", id: "mandrill" },
-                        { path: "/events/mandrill", method: :post })
-    end
-
     test ":get should return success" do
       get(:show, {:id => "mandrill"})
       assert_response :success
