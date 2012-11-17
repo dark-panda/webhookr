@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class WebhookrTest < ActiveSupport::TestCase
-  test "truth" do
-    assert_kind_of Module, Webhookr
+  test "should have Webhookr::Config module" do
+    assert_kind_of Module, Webhookr::Config
+  end
+  
+  test "should have a basic_auth hash" do
+    assert_kind_of Hash, Webhookr::Config.basic_auth
   end
 end
