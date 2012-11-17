@@ -20,7 +20,7 @@ module Webhookr
     end
 
     private
-    
+
     def assert_valid_packet(parsed_response)
       raise(Webhookr::InvalidProtocolError, "Missing event key '#{EVENT_KEY}' in packet") unless parsed_response[EVENT_KEY].present?
       raise(Webhookr::InvalidProtocolError, "No data key '#{DATA_KEY}' in the response") unless parsed_response[DATA_KEY].present?

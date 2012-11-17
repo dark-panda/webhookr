@@ -13,3 +13,11 @@ guard :test do
   watch('app/controllers/application_controller.rb') { ["test/functional", "test/integration"] }
   watch('config/routes.rb') { ["test/functional", "test/integration"] }
 end
+
+guard 'markdown', :convert_on_start => true do  
+ watch ('README.md') { "./README.md|/Users/gerry/Sites/webhookr/index.html" }
+end
+
+guard 'livereload' do
+  watch ('README.md')
+end
