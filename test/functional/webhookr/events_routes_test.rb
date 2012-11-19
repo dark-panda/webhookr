@@ -8,13 +8,13 @@ module Webhookr
     end
 
     test ":get route to events" do
-      assert_recognizes({ controller: "webhookr/events", action: "show", id: "mandrill" },
-                        { path: "/events/mandrill", method: :get })
+      assert_recognizes({ controller: "webhookr/events", action: "show", service_id: "service_id" },
+                        { path: "/events/service_id", method: :get })
     end
 
     test ":post route to events" do
-      assert_recognizes({ controller: "webhookr/events", action: "create", id: "mandrill" },
-                        { path: "/events/mandrill", method: :post })
+      assert_recognizes({ controller: "webhookr/events", action: "create", service_id: "service_id" },
+                        { path: "/events/service_id", method: :post })
     end
 
   end
