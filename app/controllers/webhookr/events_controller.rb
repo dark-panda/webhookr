@@ -1,8 +1,8 @@
 module Webhookr
   class EventsController < ActionController::Base
-    http_basic_authenticate_with :name => Webhookr::Config.basic_auth.username,
-                                 :password => Webhookr::Config.basic_auth.password if Webhookr::Config.basic_auth.username &&
-                                                                                        Webhookr::Config.basic_auth.password
+    http_basic_authenticate_with :name => Webhookr.config.basic_auth.username,
+                                 :password => Webhookr.config.basic_auth.password if Webhookr.config.basic_auth.username &&
+                                                                                        Webhookr.config.basic_auth.password
     before_filter :create_service
 
     def show

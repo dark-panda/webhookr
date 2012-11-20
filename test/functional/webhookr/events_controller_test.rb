@@ -8,6 +8,7 @@ module Webhookr
 
     def setup
       @routes = Webhookr::Engine.routes
+      PlainOldCallBackClass.reset!
     end
 
     test ":get with no service id should return a ActionController::RoutingError" do
@@ -38,5 +39,20 @@ module Webhookr
            )
       assert_equal 1, PlainOldCallBackClass.call_count
     end
+
+    test "basic auth will prevent unauthorized access" do
+      pending "more time " do
+        Webhookr.config.basic_auth.username = "admin"
+        Webhookr.config.basic_auth.password = "password"
+
+        post(:create, {
+                        :service_id => stub.service_name,
+                        :event => stub.event
+                      }
+             )
+        assert_response :unauthorized
+      end
+    end
+
   end
 end

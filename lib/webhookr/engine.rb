@@ -1,10 +1,9 @@
 module Webhookr
-  module Config
-    # Enables basic auth for all services when `:username` and
-    # `:password` are set.
-    mattr_accessor :basic_auth
-    self.basic_auth = ActiveSupport::OrderedOptions.new
-  end
+    # Enable basic auth for all services when config.basic_auth.username
+    # and config.basic_auth.password are set.
+    mattr_accessor :config
+    self.config = ActiveSupport::OrderedOptions.new
+    self.config.basic_auth = ActiveSupport::OrderedOptions.new
 
   class Engine < ::Rails::Engine
     isolate_namespace Webhookr
