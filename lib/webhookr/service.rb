@@ -28,7 +28,7 @@ module Webhookr
     end
 
     def call_back_class(service_name)
-      ("Webhookr::Services::" + service_name.camelize).constantize.callback
+      ("Webhookr::Services::" + service_name.camelize).constantize.config.callback
     end
 
     def service_protocol_class(service_name)

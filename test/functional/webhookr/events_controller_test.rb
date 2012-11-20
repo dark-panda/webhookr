@@ -31,7 +31,7 @@ module Webhookr
 
     test ":post with valid payload should return success" do
       PlainOldCallBackClass.reset!
-      Webhookr::Services::ServiceUnderTest.callback = PlainOldCallBackClass
+      Webhookr::Services::ServiceUnderTest.config.callback = PlainOldCallBackClass
       post(:create, {
                       :service_id => stub.service_name,
                       :event => stub.event
@@ -41,7 +41,7 @@ module Webhookr
     end
 
     test "basic auth will prevent unauthorized access" do
-      pending "more time " do
+      pending "more time" do
         Webhookr.config.basic_auth.username = "admin"
         Webhookr.config.basic_auth.password = "password"
 

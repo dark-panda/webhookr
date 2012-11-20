@@ -1,7 +1,8 @@
 module Webhookr
   module Services
     module ServiceUnderTest
-      mattr_accessor :callback
+      mattr_accessor :config
+      self.config = ActiveSupport::OrderedOptions.new
 
       class Adapter
         class << self
