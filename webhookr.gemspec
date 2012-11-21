@@ -5,20 +5,17 @@ require "webhookr/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  gem.name          = "webhookr"
-  gem.version       = Webhookr::Services::Mailchimp::VERSION
-  gem.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  gem.authors       = ["Gerry Power"]
-  gem.email         = ["code@zoocasa.com"]
-  gem.description   = "A Rails Engine to enable webhooks from supported third-party services to your application."
-  gem.summary       = gem.description
-  gem.homepage      = "http://github.com/zoocasa/webhookr"
+  s.name        = "webhookr"
+  s.version     = Webhookr::VERSION
+  s.authors     = ["TODO: Your name"]
+  s.email       = ["TODO: Your email"]
+  s.homepage    = "TODO"
+  s.summary     = "TODO: Summary of Webhookr."
+  s.description = "TODO: Description of Webhookr."
 
-  gem.files         = `git ls-files`.split($\)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.require_paths = ["lib"]
-  
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.test_files = Dir["test/**/*"]
+
   s.add_dependency "rails", ["~> 3.1"]
   s.add_development_dependency("rake", ["~> 10.0"])
   s.add_development_dependency("guard")
