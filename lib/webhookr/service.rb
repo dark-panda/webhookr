@@ -3,7 +3,7 @@ module Webhookr
     attr_reader :service_name
 
     def initialize(service_name, options = Hash.new(""))
-      @service_name = service_name || ""
+      @service_name = (service_name || "").downcase
       @raw_payload = options[:payload]
       available?
     end
@@ -26,16 +26,19 @@ module Webhookr
     end
 
     def callback_class
-      raise "No callback is configured for the service '#{service_name}'." if service_module.config.callback.nil?
-      @call_back_class || service_module.config.callback.new
-    end
-
-    def service_module
-      @service_module || ("Webhookr::Services::" + service_name.camelize).constantize
+      callback = Webhookr.config[service_name].try(:callback)
+      raise "No callback is configured for the service '#{service_name}'." if callback.nil?
+      @call_back_class || callback.new
     end
 
     def service_adapter
-      @service_adapter || ("Webhookr::Services::" + service_name.camelize + "::Adapter").constantize
+      if defined?(@service_adapter)
+        @service_adapter
+      else
+        raise NameError.new(%{Bad service name "#{service_name}"}) unless Webhookr.adapters[service_name]
+
+        @service_adapter = Webhookr.adapters[service_name]
+      end
     end
 
     alias_method :available?, :service_adapter

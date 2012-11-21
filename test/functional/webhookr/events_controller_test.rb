@@ -1,3 +1,5 @@
+
+$: << File.join(File.dirname(__FILE__), %w{ .. .. })
 require 'test_helper'
 require 'stubs/service_under_test_stubs'
 
@@ -31,7 +33,7 @@ module Webhookr
 
     test ":post with valid payload should return success" do
       PlainOldCallBackClass.reset!
-      Webhookr::Services::ServiceUnderTest.config.callback = PlainOldCallBackClass
+      Webhookr::Services::ServiceUnderTest::Adapter.config.callback = PlainOldCallBackClass
       post(:create, {
                       :service_id => stub.service_name,
                       :event => stub.event_type,

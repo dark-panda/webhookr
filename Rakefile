@@ -1,38 +1,39 @@
-#!/usr/bin/env rake
-begin
-  require 'bundler/setup'
-rescue LoadError
-  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
-end
-begin
-  require 'rdoc/task'
-rescue LoadError
-  require 'rdoc/rdoc'
-  require 'rake/rdoctask'
-  RDoc::Task = Rake::RDocTask
-end
 
-RDoc::Task.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'Webhookr'
-  rdoc.options << '--line-numbers'
-  rdoc.rdoc_files.include('README.rdoc')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
+# -*- ruby -*-
 
+require 'rubygems'
 
+gem 'rdoc', '~> 3.12'
 
-
-Bundler::GemHelper.install_tasks
-
+require 'rubygems/package_task'
 require 'rake/testtask'
+require 'rdoc/task'
+require 'bundler/gem_tasks'
 
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = false
+if RUBY_VERSION >= '1.9'
+  begin
+    gem 'psych'
+  rescue Exception => e
+    # it's okay, fall back on the bundled psych
+  end
 end
 
+$:.push 'lib'
 
-task :default => :test
+version = Webhookr::VERSION
+
+desc 'Test Webhookr'
+Rake::TestTask.new(:test) do |t|
+  t.test_files = FileList['test/**/*_test.rb']
+  t.verbose = !!ENV['VERBOSE_TESTS']
+  t.warning = !!ENV['WARNINGS']
+end
+
+desc 'Build docs'
+Rake::RDocTask.new do |t|
+  t.main = 'README.md'
+  t.title = "Webhookr #{version}"
+  t.rdoc_dir = 'doc'
+  t.rdoc_files.include('README.md', 'MIT-LICENSE', 'lib/**/*.rb')
+end
+
