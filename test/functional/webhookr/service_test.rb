@@ -60,7 +60,7 @@ module Webhookr
     test "process! should silently ignore on_event not present in callback class" do
       assert_nothing_raised {
         Webhookr::Service.new(stub.service_name,
-                              :payload => stub(:event => "no_event").payload).process!
+                              :payload => stub(:event_type => "no_event").payload).process!
       }
     end
 

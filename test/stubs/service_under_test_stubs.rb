@@ -12,7 +12,7 @@ module Webhookr
               p = Rack::Utils.parse_nested_query(p)
               validate(payload)
               OpenStruct.new({
-                :event => p["event"],
+                :event_type => p["event"],
                 :data => OpenStruct.new(p["data"])
               })
             end
@@ -37,14 +37,14 @@ module Webhookr
       def stub(options = {})
         ops = {
           :service_name => "service_under_test",
-          :event => "test_event",
+          :event_type => "test_event",
           :email => "gerry@zoocasa.com"
         }.merge(options)
       
         OpenStruct.new({
-          :payload => "event=#{ops[:event]}&data[email]=#{ops[:email]}",
+          :payload => "event=#{ops[:event_type]}&data[email]=#{ops[:email]}",
           :service_name => ops[:service_name],
-          :event => ops[:event],
+          :event_type => ops[:event_type],
           :email => ops[:email]
          })
       end

@@ -26,7 +26,7 @@ module Webhookr
 
       test "should repond with the correct event" do
         responses = Webhookr::Services::ServiceUnderTest::Adapter.process(@valid_response)
-        assert_equal(@event_type, responses.first.event)
+        assert_equal(@event_type, responses.first.event_type)
       end
 
       test "should respond with valid data" do

@@ -1,38 +1,46 @@
 module Webhookr
   class Service
-    
+    attr_reader :service_name
+
     def initialize(service_name, options = Hash.new(""))
-      @service_name = service_name
-      @service_protocol_class = service_protocol_class(service_name || "")
-      @payload = options[:payload]
+      @service_name = service_name || ""
+      @raw_payload = options[:payload]
+      configure!
     end
 
     def process!
-       result = @service_protocol_class.send(:process, @payload)
-       [*result].each do |r|
-         klass = new_service_callback_class(@service_name)
-         klass.send(method_for(r.event), r) if klass.respond_to?(method_for(r.event))
-       end
+      payloads = service_adapter.send(:process, @raw_payload)
+      [*payloads].each do |payload|
+        callback(callback_class, payload)
+      end
     end
 
     private
 
-    def method_for(event)
-      "on_" + event
+    def configure!
+      service_adapter
     end
 
-    def new_service_callback_class(service_name)
-      raise "No callback configured for service: #{service_name}" unless
-            call_back_class(service_name)
-      call_back_class(service_name).new
+    def callback(object, payload)
+      method = method_for(payload)
+      object.send(method, payload) if object.respond_to?(method)
     end
 
-    def call_back_class(service_name)
-      ("Webhookr::Services::" + service_name.camelize).constantize.config.callback
+    def method_for(payload)
+      "on_" + payload.event_type
     end
 
-    def service_protocol_class(service_name)
-      ("Webhookr::Services::" + service_name.camelize + "::Adapter").constantize
+    def callback_class
+      raise "No callback is configured for the service '#{service_name}'." if service_module.config.callback.nil?
+      @call_back_class || service_module.config.callback.new
+    end
+
+    def service_module
+      @service_module || ("Webhookr::Services::" + service_name.camelize).constantize
+    end
+
+    def service_adapter
+      @service_adapter || ("Webhookr::Services::" + service_name.camelize + "::Adapter").constantize
     end
 
   end

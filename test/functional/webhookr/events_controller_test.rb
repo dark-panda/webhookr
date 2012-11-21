@@ -34,7 +34,8 @@ module Webhookr
       Webhookr::Services::ServiceUnderTest.config.callback = PlainOldCallBackClass
       post(:create, {
                       :service_id => stub.service_name,
-                      :event => stub.event
+                      :event => stub.event_type,
+                      :data => { :email => stub.email }
                     }
            )
       assert_equal 1, PlainOldCallBackClass.call_count
