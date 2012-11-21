@@ -1,12 +1,12 @@
 module Webhookr
   module Services
     module ServiceUnderTest
-      mattr_accessor :config
-      self.config = ActiveSupport::OrderedOptions.new
-
       class Adapter
-        class << self
+        SERVICE_NAME = 'service_under_test'
 
+        include Webhookr::Services::Adapter::Base
+
+        class << self
           def process(payload)
             [*payload].collect do |p|
               p = Rack::Utils.parse_nested_query(p)

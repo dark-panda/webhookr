@@ -9,6 +9,10 @@ module Webhookr
   autoload :VERSION
 
   class << self
+    def adapters
+      @adapters ||= HashWithIndifferentAccess.new
+    end
+
     def config
       if defined?(@config)
         @config
@@ -22,3 +26,6 @@ module Webhookr
     end
   end
 end
+
+require "webhookr/services"
+
