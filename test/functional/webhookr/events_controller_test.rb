@@ -1,3 +1,5 @@
+
+$: << File.join(File.dirname(__FILE__), %w{ .. .. })
 require 'test_helper'
 require 'stubs/service_under_test_stubs'
 
