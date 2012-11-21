@@ -26,7 +26,7 @@ module Webhookr
     end
 
     test "should raise a Runtime error if there is no callback class configured" do
-      Webhookr::Services::ServiceUnderTest.config.callback = nil
+      Webhookr::Services::ServiceUnderTest::Adapter.config.callback = nil
       assert_raise(RuntimeError) {
         Webhookr::Service.new(stub.service_name,
                               :payload => stub.payload).process!
@@ -40,13 +40,13 @@ module Webhookr
     include Webhookr::Services::ServiceUnderTest
 
     def setup
-      Webhookr::Services::ServiceUnderTest.config.callback = PlainOldCallBackClass
+      Webhookr::Services::ServiceUnderTest::Adapter.config.callback = PlainOldCallBackClass
       PlainOldCallBackClass.reset!
     end
 
     test "should accept a callback class configuration" do
       assert_nothing_raised {
-        Webhookr::Services::ServiceUnderTest.config.callback = Object
+        Webhookr::Services::ServiceUnderTest::Adapter.config.callback = Object
       }
     end
 

@@ -9,9 +9,16 @@ module Webhookr
   autoload :VERSION
 
   class << self
+    def adapters
+      @adapters ||= HashWithIndifferentAccess.new
+    end
+
     def config
       @config ||= defined?(Rails) ? Rails.application.config.webhookr :
                                     ActiveSupport::OrderedOptions.new
     end
   end
 end
+
+require "webhookr/services"
+
