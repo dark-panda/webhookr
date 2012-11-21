@@ -9,8 +9,7 @@ module Webhookr
     end
 
     def process!
-      payloads = service_adapter.send(:process, @raw_payload)
-      [*payloads].each do |payload|
+      [*service_adapter.send(:process, @raw_payload)].each do |payload|
         callback(callback_class, payload)
       end
     end
