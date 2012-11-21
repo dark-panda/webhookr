@@ -5,7 +5,7 @@ module Webhookr
     def initialize(service_name, options = Hash.new(""))
       @service_name = service_name || ""
       @raw_payload = options[:payload]
-      configure!
+      available?
     end
 
     def process!
@@ -16,10 +16,6 @@ module Webhookr
     end
 
     private
-
-    def configure!
-      service_adapter
-    end
 
     def callback(object, payload)
       method = method_for(payload)
@@ -42,6 +38,8 @@ module Webhookr
     def service_adapter
       @service_adapter || ("Webhookr::Services::" + service_name.camelize + "::Adapter").constantize
     end
+
+    alias_method :available?, :service_adapter
 
   end
 end
