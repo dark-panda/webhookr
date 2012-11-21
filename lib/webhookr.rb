@@ -4,7 +4,7 @@ module Webhookr
   extend ActiveSupport::Autoload
 
   autoload :InvalidPayloadError
-  autoload :InvalidProtocolError
+  autoload :AdapterResponse
   autoload :Service
   autoload :VERSION
 end
