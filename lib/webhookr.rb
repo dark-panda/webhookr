@@ -10,15 +10,8 @@ module Webhookr
 
   class << self
     def config
-      if defined?(@config)
-        @config
-      else
-        @config = if defined?(Rails)
-          Rails.application.config.webhookr
-        else
-          ActiveSupport::OrderedOptions.new
-        end
-      end
+      @config ||= defined?(Rails) ? Rails.application.config.webhookr :
+                                    ActiveSupport::OrderedOptions.new
     end
   end
 end
