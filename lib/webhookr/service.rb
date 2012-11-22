@@ -32,13 +32,8 @@ module Webhookr
     end
 
     def service_adapter
-      if defined?(@service_adapter)
-        @service_adapter
-      else
-        raise NameError.new(%{Bad service name "#{service_name}"}) unless Webhookr.adapters[service_name]
-
-        @service_adapter = Webhookr.adapters[service_name]
-      end
+      raise NameError.new(%{Bad service name "#{service_name}"}) unless Webhookr.adapters[service_name]
+      @service_adapter ||= Webhookr.adapters[service_name]
     end
 
     alias_method :available?, :service_adapter
