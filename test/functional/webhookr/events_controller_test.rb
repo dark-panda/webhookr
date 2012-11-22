@@ -4,7 +4,7 @@ require 'stubs/service_under_test_stubs'
 module Webhookr
   class EventsControllerTest < ActionController::TestCase
     
-    include Webhookr::Services::ServiceUnderTest
+    include Webhookr::ServiceUnderTest
 
     def setup
       @routes = Webhookr::Engine.routes
@@ -31,7 +31,7 @@ module Webhookr
 
     test ":post with valid payload should return success" do
       PlainOldCallBackClass.reset!
-      Webhookr::Services::ServiceUnderTest::Adapter.config.callback = PlainOldCallBackClass
+      Webhookr::ServiceUnderTest::Adapter.config.callback = PlainOldCallBackClass
       post(:create, {
                       :service_id => stub.service_name,
                       :event => stub.event_type,

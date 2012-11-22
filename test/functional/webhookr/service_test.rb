@@ -4,7 +4,7 @@ require 'stubs/service_under_test_stubs'
 module Webhookr
   class ServiceTest < ActiveSupport::TestCase
 
-    include Webhookr::Services::ServiceUnderTest
+    include Webhookr::ServiceUnderTest
 
     test "should raise NameError for a nil service" do
       assert_raise(NameError) {
@@ -26,7 +26,7 @@ module Webhookr
     end
 
     test "should raise a Runtime error if there is no callback class configured" do
-      Webhookr::Services::ServiceUnderTest::Adapter.config.callback = nil
+      Webhookr::ServiceUnderTest::Adapter.config.callback = nil
       assert_raise(RuntimeError) {
         Webhookr::Service.new(stub.service_name,
                               :payload => stub.payload).process!
@@ -35,18 +35,18 @@ module Webhookr
 
   end
 
-  class ServiceUnderTest < ActiveSupport::TestCase
+  class ServiceTest < ActiveSupport::TestCase
 
-    include Webhookr::Services::ServiceUnderTest
+    include Webhookr::ServiceUnderTest
 
     def setup
-      Webhookr::Services::ServiceUnderTest::Adapter.config.callback = PlainOldCallBackClass
+      Webhookr::ServiceUnderTest::Adapter.config.callback = PlainOldCallBackClass
       PlainOldCallBackClass.reset!
     end
 
     test "should accept a callback class configuration" do
       assert_nothing_raised {
-        Webhookr::Services::ServiceUnderTest::Adapter.config.callback = Object
+        Webhookr::ServiceUnderTest::Adapter.config.callback = Object
       }
     end
 
