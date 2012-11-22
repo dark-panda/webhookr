@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Webhookr::VERSION
   s.authors     = ["gerry@zoocasa.com"]
   s.email       = ["code@zoocasa.com"]
-  s.homepage    = "TODO"
+  s.homepage    = "http://github.com/zoocasa/webhookr"
   s.summary     = "Webhookr - easily and securely add webhooks to your Rails app."
   s.description = s.summary
 
