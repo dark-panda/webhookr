@@ -22,7 +22,7 @@ module Webhookr
       begin
         @service = Webhookr::Service.new(params[:service_id], :payload => request.body.read)
       rescue NameError => e
-        raise ActionController::RoutingError.new("No service '#{params[:service_id]} is available.")
+        raise ActionController::RoutingError.new("No service '#{params[:service_id]}' is available.")
       end
     end
 
