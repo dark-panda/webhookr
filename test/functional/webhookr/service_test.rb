@@ -57,6 +57,12 @@ module Webhookr
       }
     end
 
+    test "a service should be initialized" do
+      pending "more time" do
+        assert_false
+      end
+    end
+
     test "process! should silently ignore on_event not present in callback class" do
       assert_nothing_raised {
         Webhookr::Service.new(stub.service_name,
