@@ -7,11 +7,11 @@ require "webhookr/version"
 Gem::Specification.new do |s|
   s.name        = "webhookr"
   s.version     = Webhookr::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
+  s.authors     = ["gerry@zoocasa.com"]
+  s.email       = ["code@zoocasa.com"]
   s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Webhookr."
-  s.description = "TODO: Description of Webhookr."
+  s.summary     = "Webhookr - easily and securely add webhooks to your Rails app."
+  s.description = s.summary
 
   s.files      = `git ls-files`.split($\)
   s.test_files = Dir["test/**/*"]
