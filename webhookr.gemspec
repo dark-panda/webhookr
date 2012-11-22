@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "TODO: Summary of Webhookr."
   s.description = "TODO: Description of Webhookr."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files      = `git ls-files`.split($\)
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", ["~> 3.1"]
