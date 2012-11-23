@@ -20,3 +20,8 @@ end
 guard 'livereload' do
   watch('README.md')
 end
+
+if File.exists?('Guardfile.local')
+  instance_eval File.read('Guardfile.local')
+end
+
