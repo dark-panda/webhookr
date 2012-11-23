@@ -1,3 +1,3 @@
 module Webhookr
-  class AdapterResponse < Struct.new(:event_type, :payload); end
+  class AdapterResponse < Struct.new(:service_name, :event_type, :payload); end
 end
