@@ -1,26 +1,23 @@
-$:.push File.expand_path("../lib", __FILE__)
+# -*- encoding: utf-8 -*-
 
-# Maintain your gem's version:
-require "webhookr/version"
+require File.expand_path('../lib/webhookr/version', __FILE__)
 
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "webhookr"
-  s.version     = Webhookr::VERSION
-  s.authors     = ["gerry@zoocasa.com"]
-  s.email       = ["code@zoocasa.com"]
-  s.homepage    = "http://github.com/zoocasa/webhookr"
-  s.summary     = "Webhookr - easily and securely add webhooks to your Rails app."
-  s.description = s.summary
+  s.name = "webhookr"
+  s.version = Webhookr::VERSION
 
-  s.files      = `git ls-files`.split($\)
-  s.test_files = Dir["test/**/*"]
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.authors = ["Gerry Power"]
+  s.email = ["code@zoocasa.com"]
+  s.homepage = "http://github.com/zoocasa/webhookr"
+  s.description = "Webhookr - easily and securely add webhooks to your Rails app."
+  s.summary = s.description
+
+  s.files = `git ls-files`.split($\)
+  s.executables = s.files.grep(%r{^bin/}).map { |f| File.basename(f) }
+  s.test_files = s.files.grep(%r{^(test|spec|features)/})
+  s.homepage = "https://git.i.internal/ruby/core-extensions"
+  s.require_paths = ["lib"]
 
   s.add_dependency "rails", ["~> 3.1"]
-  s.add_development_dependency("rake", ["~> 10.0"])
-  s.add_development_dependency("guard")
-  s.add_development_dependency("guard-test")
-  s.add_development_dependency("rb-fsevent")
-  s.add_development_dependency("guard-markdown")
-  s.add_development_dependency("guard-livereload")
 end

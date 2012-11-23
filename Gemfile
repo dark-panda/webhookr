@@ -1,7 +1,18 @@
 source "http://rubygems.org"
 
-# Declare your gem's dependencies in webhookr.gemspec.
-# Bundler will treat runtime dependencies like base dependencies, and
-# development dependencies will be added by default to the :development group.
 gemspec
+
+gem "rake", "~> 10.0"
+gem "minitest"
+gem "minitest-reporters"
+gem "em-websocket"
+gem "guard"
+gem "guard-minitest"
+gem "guard-markdown"
+gem "guard-livereload"
+
+if RbConfig::CONFIG['host_os'] =~ /^darwin/
+  gem "rb-fsevent"
+  gem "growl"
+end
 

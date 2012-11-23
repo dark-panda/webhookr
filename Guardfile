@@ -1,24 +1,22 @@
-# A sample Guardfile
-# More info at https://github.com/guard/guard#readme
 
-guard :test do
-  watch(%r{^lib/(.+)\.rb$})     { |m| "test/#{m[1]}_test.rb" }
-  watch(%r{^test/.+_test\.rb$})
-  watch('test/test_helper.rb')  { "test" }
-  watch(%r{^test/stubs/(.+)\.rb$}) { "test"}
+guard 'minitest', :test_folders => 'test', :test_file_patterns => '*_test.rb' do
+  watch(%r|^test/(.+)_test\.rb|)
+  watch(%r|^test/stubs/(.+)\.rb$|) { "test" }
 
-  # Rails example
-  watch(%r{^app/models/(.+)\.rb$}) { |m| "test/unit/#{m[1]}_test.rb" }
-  watch(%r{^app/controllers/(.+)\.rb$}) { |m| 
+  # Rails
+  watch(%r{^app/models/(.+)\.rb$}) { |m|
+    "test/unit/#{m[1]}_test.rb"
+  }
+
+  watch(%r{^app/controllers/(.+)\.rb$}) { |m|
     "test/functional/#{m[1]}_test.rb"
   }
-  watch('config/routes.rb') { ["test/functional", "test/integration"] }
-end
 
-guard 'markdown', :convert_on_start => true do  
- watch ('README.md') { "./README.md|/Users/gerry/Sites/webhookr/index.html" }
+  watch('config/routes.rb') {
+    ["test/functional", "test/integration"]
+  }
 end
 
 guard 'livereload' do
-  watch ('README.md')
+  watch('README.md')
 end
