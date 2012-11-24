@@ -58,9 +58,9 @@ module Webhookr
     end
 
     test "a service should be initialized" do
-      pending "more time" do
-        assert_false
-      end
+      # pending "more time" do
+      #   assert_false
+      # end
     end
 
     test "process! should silently ignore on_event not present in callback class" do
