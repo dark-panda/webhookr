@@ -26,4 +26,21 @@ Rake::RDocTask.new do |t|
   t.rdoc_files.include('README.md', 'MIT-LICENSE', 'lib/**/*.rb')
 end
 
+namespace :webhookr do
+  namespace:test do
+    desc 'Install gems in all Rubies'
+    task :install do
+      sh %{rbenv each -v bundle install}
+    end
+
+    desc 'Test with all Rubies'
+    task :test_versions do
+      sh %{rbenv each -v bundle exec rake test}
+    end
+
+    desc 'Install and test all'
+    task :all => [:install, :test_versions]
+  end
+end
+
 task :default => :test
