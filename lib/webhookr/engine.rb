@@ -1,3 +1,5 @@
+require 'active_support/core_ext/kernel/singleton_class'
+
 module Webhookr
   class Engine < ::Rails::Engine
     isolate_namespace Webhookr
