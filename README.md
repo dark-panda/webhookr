@@ -105,7 +105,7 @@ affects all your webhooks, so be sure it is supported by all your third-party se
 
 ## <a name="supported_services"></a>Works with:
 
-webhookr works with Rails 3.1 onward, and has been tested on the following Ruby
+webhookr works with Rails 3.1 and 3.2, and has been tested on the following Ruby
 implementations:
 
 * Ruby 1.8.7
