@@ -2,10 +2,11 @@ module Webhookr
   class Service
     attr_reader :service_name
 
-    def initialize(service_name, options = Hash.new(""))
+    def initialize(service_name, options = {})
       @service_name = (service_name || "").downcase
       @raw_payload = options[:payload]
       available?
+      validate_security_token(options[:security_token]) if configured_security_token
     end
 
     def process!
@@ -29,6 +30,14 @@ module Webhookr
       callback = Webhookr.config[service_name].try(:callback)
       raise "No callback is configured for the service '#{service_name}'." if callback.nil?
       @call_back_class || callback.new
+    end
+
+    def configured_security_token
+      Webhookr.config[service_name].try(:security_token)
+    end
+
+    def validate_security_token(token)
+      raise Webhookr::InvalidSecurityTokenError if token.nil? || token != configured_security_token
     end
 
     def service_adapter

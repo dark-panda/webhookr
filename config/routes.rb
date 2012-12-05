@@ -1,4 +1,4 @@
 Webhookr::Engine.routes.draw do
-  get "/events/:service_id" => "events#show"
-  post "/events/:service_id" => "events#create"
+  get "/events/:service_id(/:security_token)" => "events#show", :as => "events"
+  post "/events/:service_id(/:security_token)" => "events#create", :as => "events"
 end

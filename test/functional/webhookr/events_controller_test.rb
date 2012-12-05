@@ -11,6 +11,8 @@ module Webhookr
     def setup
       @routes = Webhookr::Engine.routes
       PlainOldCallBackClass.reset!
+      Webhookr::ServiceUnderTest::Adapter.config.security_token = nil
+      @security_token = "secure_blort"
     end
 
     test ":get with no service id should return a ActionController::RoutingError" do
@@ -41,6 +43,19 @@ module Webhookr
                     }
            )
       assert_equal 1, PlainOldCallBackClass.call_count
+    end
+
+    test ":get with :security_token configured and not passed should return :InvalidAuthenticityToken" do
+      Webhookr::ServiceUnderTest::Adapter.config.security_token = @security_token
+      assert_raise(ActionController::InvalidAuthenticityToken) {
+        get(:show, {:service_id => stub.service_name})
+      }
+    end
+
+    test ":get with :security_token configured and passed should return :success" do
+      Webhookr::ServiceUnderTest::Adapter.config.security_token = @security_token
+      get(:show, {:service_id => stub.service_name, :security_token => @security_token})
+      assert_response(:success)
     end
 
     test "basic auth will prevent unauthorized access" do
