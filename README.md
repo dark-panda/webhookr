@@ -96,25 +96,32 @@ You can also enable http basic auth, if the third party service supports it. Not
 affects all your webhooks, so be sure it is supported by all your third-party services.
 
 
-## <a name="supported_services"></a>Supported Services
+### <a name="supported_services"></a>Supported Services
 
 * MailChimp - webhookr-mail_chimp
 * Mandrill - webhookr-mandrill
 * Github - coming soon
-* Strip - coming soon
+* Stripe - coming soon
 
-## <a name="supported_services"></a>Works with:
+## <a name="works_with"></a>Works with:
 
 webhookr works with Rails 3.1 and 3.2, and has been tested on the following Ruby
 implementations:
 
-* Ruby 1.8.7
-* Ruby 1.9.3
+* MRI 1.9.3
+* MRI 1.8.7
 * Ruby EE 1.8.7
 * JRuby 1.7.0
+
+Pending:
 * Rubinius 1.2.4
 
-## License
+### TODO
+* Implement get/post strategies and responses to the controller, to support advanced Webhook responses,
+such as implemented by Shopify.
+* Enhance Rake tests
+
+### License
 
 webhookr is released under the [MIT license](http://www.opensource.org/licenses/MIT).
 
