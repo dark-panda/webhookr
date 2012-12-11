@@ -1,4 +1,5 @@
 # webhookr: Rails Webhooks Made Easy
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/zoocasa/webhookr)
 
 ## <a name="introduction"></a>Introduction
 
