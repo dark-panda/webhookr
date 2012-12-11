@@ -9,14 +9,13 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gerry Power"]
   s.email = ["code@zoocasa.com"]
-  s.homepage = "http://github.com/zoocasa/webhookr"
   s.description = "Webhookr - easily and securely add webhooks to your Rails app."
   s.summary = s.description
 
   s.files = `git ls-files`.split($\)
   s.executables = s.files.grep(%r{^bin/}).map { |f| File.basename(f) }
   s.test_files = s.files.grep(%r{^(test|spec|features)/})
-  s.homepage = "https://git.i.internal/ruby/core-extensions"
+  s.homepage = "http://github.com/zoocasa/webhookr"
   s.require_paths = ["lib"]
 
   s.add_dependency "rails", ["~> 3.1"]
