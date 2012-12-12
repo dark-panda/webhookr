@@ -8,6 +8,10 @@ rvm:
   - rbx-18mode
   - rbx-19mode
   - ree
+  - ruby-head
 env:
   - RAILS_VERSION=3.1.8
   - RAILS_VERSION=3.2.9
+matrix:
+  allow_failures:
+    - rvm: ruby-head
