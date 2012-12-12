@@ -1,5 +1,7 @@
 # webhookr: Rails Webhooks Made Easy
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/zoocasa/webhookr) [![Dependency Status](https://gemnasium.com/zoocasa/webhookr.png)](https://gemnasium.com/zoocasa/webhookr)
+[![Build Status](https://travis-ci.org/zoocasa/webhookr.png?branch=master)](https://travis-ci.org/zoocasa/webhookr)
+[![Dependency Status](https://gemnasium.com/zoocasa/webhookr.png)](https://gemnasium.com/zoocasa/webhookr)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/zoocasa/webhookr)
 
 ## <a name="introduction"></a>Introduction
 
