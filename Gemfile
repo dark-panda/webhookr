@@ -13,6 +13,7 @@ group :development, :test do
   gem "guard-markdown"
   gem "guard-livereload"
   gem "simplecov", :require => false
+  gem 'coveralls', :require => false
 end
 
 if File.exists?('Gemfile.local')
