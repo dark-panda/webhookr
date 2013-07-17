@@ -18,5 +18,5 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/zoocasa/webhookr"
   s.require_paths = ["lib"]
 
-  s.add_dependency "rails", ["~> 3.1"]
+  s.add_dependency "rails", [">= 3.1"]
 end
