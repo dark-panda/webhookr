@@ -1,6 +1,6 @@
 # webhookr: Rails Webhooks Made Easy
 [![Build Status](https://travis-ci.org/gerrypower/webhookr.png?branch=master)](https://travis-ci.org/gerrypower/webhookr)
-[![Dependency Status](https://gemnasium.com/zoocasa/webhookr.png)](https://gemnasium.com/zoocasa/webhookr)
+[![Dependency Status](https://gemnasium.com/gerrypower/webhookr.png)](https://gemnasium.com/gerrypower/webhookr)
 [![Code Climate](https://codeclimate.com/github/zoocasa/webhookr.png)](https://codeclimate.com/github/zoocasa/webhookr)
 [![Coverage](https://coveralls.io/repos/zoocasa/webhookr/badge.png?branch=master)](https://coveralls.io/r/zoocasa/webhookr)
 
