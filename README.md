@@ -58,7 +58,7 @@ end
 
 ## <a name="usage"></a>Usage & Setup
 
-webhookr works with Rails 3.1 onwards. It generally requires a plugin to be
+webhookr works with Rails 3.2 onwards. It generally requires a plugin to be
 useful, such as the [MailChimp plugin](https://github.com/zoocasa/webhookr-mailchimp).
 
 ## Setup
@@ -130,26 +130,18 @@ If you are sending sensitive data via webhooks, it is recommended you use HTTPS.
 
 ## <a name="works_with"></a>Works with:
 
-webhookr works with Rails 3.1 and 3.2, and has been tested on the following Ruby
+webhookr works with Rails 4.0 and 3.2, and has been tested on the following Ruby
 implementations:
 
-* JRuby 1.7.1
-* MRI 1.8.7
-* MRI 1.9.2
+* JRuby 1.7.4
 * MRI 1.9.3
-* Rubinius 1.2.4
-* Ruby EE 1.8.7
-
-Pending:
-
-* MRI 2.0
+* MRI 2.0.0
 
 ### TODO
 * Implement get/post strategies and responses so the controller can return variable text to the service.
 This allows support for advanced Webhook responses for services that require it.
 * Enhance testing of Rake tasks
 * Clean up the stubs with FactoryGirl
-* Test with MRI 2.0
 
 ### Versioning
 This library aims to adhere to [Semantic Versioning 2.0.0](http://semver.org/). Violations of this scheme should be reported as
