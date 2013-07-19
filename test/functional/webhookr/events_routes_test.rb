@@ -5,9 +5,9 @@ module Webhookr
 
     def setup
       @routes = Webhookr::Engine.routes
-      @show_controller = { :controller => "webhookr/events", :action => "show", :service_id => "service_id" }
+      @show_controller = { :format => "json", :controller => "webhookr/events", :action => "show", :service_id => "service_id" }
       @show_controller_with_token = @show_controller.merge({ :security_token => "secure" })
-      @create_controller = { :controller => "webhookr/events", :action => "create", :service_id => "service_id" }
+      @create_controller = { :format => "json", :controller => "webhookr/events", :action => "create", :service_id => "service_id" }
       @create_controller_with_token = @create_controller.merge({ :security_token => "secure" })
       @path = "/events/service_id"
       @path_with_token = "/events/service_id/secure"

@@ -3,7 +3,7 @@ source "http://rubygems.org"
 gemspec
 
 group :development, :test do
-  gem "rails", ENV['RAILS_VERSION'] || "3.2.9"
+  gem "rails", ENV['RAILS_VERSION'] || "4.0.0"
   gem "rake", "~> 10.0"
   gem "minitest"
   gem "minitest-reporters"
@@ -13,6 +13,7 @@ group :development, :test do
   gem "guard-markdown"
   gem "guard-livereload"
   gem "simplecov", :require => false
+  gem 'coveralls', :require => false
 end
 
 if File.exists?('Gemfile.local')

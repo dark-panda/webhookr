@@ -18,7 +18,7 @@ guard 'minitest', :test_folders => 'test', :test_file_patterns => '*_test.rb' do
 end
 
 guard 'livereload' do
-  watch('README.md')
+  watch('README.html')
 end
 
 guard 'markdown', :convert_on_start => true do

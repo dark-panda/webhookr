@@ -5,7 +5,7 @@ require 'stubs/service_under_test_stubs'
 
 module Webhookr
   class EventsControllerTest < ActionController::TestCase
-    
+
     include Webhookr::ServiceUnderTest
 
     def setup
@@ -17,16 +17,16 @@ module Webhookr
 
     test ":get with no service id should return a ActionController::RoutingError" do
       assert_raise(ActionController::RoutingError) {
-        get(:show)
+        get(:show, {:service_id => ""})
       }
     end
-    
-    test ":get with an unknown service id should return a ActionController::RoutingError" do     
+
+    test ":get with an unknown service id should return a ActionController::RoutingError" do
       assert_raise(ActionController::RoutingError) {
         get(:show, {:service_id => "blort"})
       }
     end
-    
+
     test ":get with known service id should return success and an empty body" do
       get(:show, {:service_id => stub.service_name})
       assert_response :success
