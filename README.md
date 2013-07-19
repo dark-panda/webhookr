@@ -58,7 +58,7 @@ end
 
 ## <a name="usage"></a>Usage & Setup
 
-webhookr works with Rails 3.2 onwards. It generally requires a plugin to be
+webhookr works with Rails 3.1 onwards. It generally requires a plugin to be
 useful, such as the [MailChimp plugin](https://github.com/zoocasa/webhookr-mailchimp).
 
 ## Setup
@@ -130,7 +130,7 @@ If you are sending sensitive data via webhooks, it is recommended you use HTTPS.
 
 ## <a name="works_with"></a>Works with:
 
-webhookr works with Rails 4.0 and 3.2, and has been tested on the following Ruby
+webhookr works with Rails 4.0 and 3.1, and has been tested on the following Ruby
 implementations:
 
 * JRuby 1.7.4
