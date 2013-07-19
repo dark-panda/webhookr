@@ -20,6 +20,9 @@ module Webhookr
 
     def create_service
       begin
+        # Rails 4.0.0 fix: https://github.com/rails/rails/pull/11353
+        request.body.rewind
+
         @service = Webhookr::Service.new(
           params[:service_id], :payload => request.body.read, :security_token => params[:security_token]
         )
