@@ -172,4 +172,5 @@ webhookr is released under the [MIT license](http://www.opensource.org/licenses/
 ## Author
 
 * [Gerry Power](https://github.com/gerrypower)
+* [J Smith](https://github.com/dark-panda)
 
