@@ -166,4 +166,3 @@ webhookr is released under the [MIT license](http://www.opensource.org/licenses/
 
 * [Gerry Power](https://github.com/gerrypower)
 
-## <a name="Version History"></a>Version History
