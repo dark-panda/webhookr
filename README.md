@@ -99,6 +99,13 @@ rake webhookr:services
 
 ## <a name="security"></a>Webhookr Security
 
+### Important security note
+
+A timing attack vulnerability was discovered in versions of webhookr prior to 0.2.0.
+It is recommended that you upgrade to as soon as possible to at least version 0.2.0.
+
+Please see revision ccafc8248559a09e090cf824c8454c9824555a06 for details.
+
 ### General security issues with webhooks
 
 A webhook is by design, a http post to your application that results in code execution.
