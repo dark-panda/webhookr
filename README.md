@@ -137,7 +137,7 @@ If you are sending sensitive data via webhooks, it is recommended you use HTTPS.
 
 ## <a name="works_with"></a>Works with:
 
-webhookr works with Rails 4.0 and 3.1, and has been tested on the following Ruby
+webhookr works with Rails 4.0 and 3.1+, and has been tested on the following Ruby
 implementations:
 
 * JRuby 1.7.4
