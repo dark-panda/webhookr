@@ -1,3 +1,4 @@
+require "securecompare"
 require "webhookr/engine"
 
 module Webhookr

@@ -37,7 +37,7 @@ module Webhookr
     end
 
     def validate_security_token(token)
-      raise Webhookr::InvalidSecurityTokenError if token.nil? || token != configured_security_token
+      raise Webhookr::InvalidSecurityTokenError if token.nil? || !SecureCompare.compare(token, configured_security_token)
     end
 
     def service_adapter

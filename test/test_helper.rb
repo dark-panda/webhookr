@@ -25,3 +25,7 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 MiniTest::Reporters.use!(MiniTest::Reporters::SpecReporter.new)
 
+puts "Webhookr #{Webhookr::VERSION}"
+puts "Rails #{Rails::VERSION::STRING}"
+puts "Ruby #{RUBY_VERSION}-p#{RUBY_PATCHLEVEL} - #{RbConfig::CONFIG['RUBY_INSTALL_NAME']}"
+

@@ -1,8 +1,8 @@
 # webhookr: Rails Webhooks Made Easy
-[![Build Status](https://travis-ci.org/gerrypower/webhookr.png?branch=master)](https://travis-ci.org/gerrypower/webhookr)
-[![Dependency Status](https://gemnasium.com/gerrypower/webhookr.png)](https://gemnasium.com/gerrypower/webhookr)
-[![Code Climate](https://codeclimate.com/repos/51e6ab267e00a46e6500e416/badges/695bda57c23261873fbb/gpa.png)](https://codeclimate.com/repos/51e6ab267e00a46e6500e416/feed)
-[![Coverage](https://coveralls.io/repos/gerrypower/webhookr/badge.png?branch=master)](https://coveralls.io/r/gerrypower/webhookr)
+[![Build Status](https://travis-ci.org/zoocasa/webhookr.png?branch=master)](https://travis-ci.org/zoocasa/webhookr)
+[![Dependency Status](https://gemnasium.com/zoocasa/webhookr.png)](https://gemnasium.com/zoocasa/webhookr)
+[![Code Climate](https://codeclimate.com/github/zoocasa/webhookr.png)](https://codeclimate.com/github/zoocasa/webhookr)
+[![Coverage Status](https://coveralls.io/repos/zoocasa/webhookr/badge.png?branch=master)](https://coveralls.io/r/zoocasa/webhookr?branch=master)
 
 ## <a name="introduction"></a>Introduction
 
@@ -99,6 +99,13 @@ rake webhookr:services
 
 ## <a name="security"></a>Webhookr Security
 
+### Important security note
+
+A timing attack vulnerability was discovered in versions of webhookr prior to 0.2.0.
+It is recommended that you upgrade to as soon as possible to at least version 0.2.0.
+
+Please see revision ccafc8248559a09e090cf824c8454c9824555a06 for details.
+
 ### General security issues with webhooks
 
 A webhook is by design, a http post to your application that results in code execution.
@@ -130,7 +137,11 @@ If you are sending sensitive data via webhooks, it is recommended you use HTTPS.
 
 ## <a name="works_with"></a>Works with:
 
+<<<<<<< HEAD
 webhookr works with Rails 4.0 and 3.1, and has been tested on the following Ruby
+=======
+webhookr works with Rails 4.0 and 3.1+, and has been tested on the following Ruby
+>>>>>>> upstream/master
 implementations:
 
 * JRuby 1.7.4
@@ -165,5 +176,5 @@ webhookr is released under the [MIT license](http://www.opensource.org/licenses/
 ## Author
 
 * [Gerry Power](https://github.com/gerrypower)
+* [J Smith](https://github.com/dark-panda)
 
-## <a name="Version History"></a>Version History
