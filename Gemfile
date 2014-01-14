@@ -5,7 +5,7 @@ gemspec
 group :development, :test do
   gem "rails", ENV['RAILS_VERSION'] || "4.0.0"
   gem "rake", "~> 10.0"
-  gem "minitest"
+  gem "minitest", ENV['MINITEST_VERSION'] || "~> 4.0"
   gem "minitest-reporters"
   gem "em-websocket"
   gem "guard"
