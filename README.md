@@ -137,16 +137,13 @@ If you are sending sensitive data via webhooks, it is recommended you use HTTPS.
 
 ## <a name="works_with"></a>Works with:
 
-<<<<<<< HEAD
-webhookr works with Rails 4.0 and 3.1, and has been tested on the following Ruby
-=======
 webhookr works with Rails 4.0 and 3.1+, and has been tested on the following Ruby
->>>>>>> upstream/master
 implementations:
 
 * JRuby 1.7.4
 * MRI 1.9.3
 * MRI 2.0.0
+* MRI 2.1.0
 
 ### TODO
 * Implement get/post strategies and responses so the controller can return variable text to the service.
