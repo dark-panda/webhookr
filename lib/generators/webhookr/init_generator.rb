@@ -22,9 +22,8 @@ eos
       end
 
       def generate_security_token
-        rand(10000000000000000).floor.to_s(36)
+        SecureRandom.hex(32)
       end
-
     end
   end
 end
