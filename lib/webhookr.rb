@@ -15,8 +15,11 @@ module Webhookr
     end
 
     def config
-      @config ||= defined?(Rails) ? Rails.application.config.webhookr :
-                                    ActiveSupport::OrderedOptions.new
+      @config ||= if defined?(Rails)
+        Rails.application.config.webhookr
+      else
+        ActiveSupport::OrderedOptions.new
+      end
     end
   end
 end

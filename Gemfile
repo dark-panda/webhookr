@@ -11,8 +11,8 @@ group :development, :test do
   gem "guard-minitest"
   gem "guard-markdown"
   gem "guard-livereload"
-  gem "simplecov", :require => false
-  gem 'coveralls', :require => false
+  gem "simplecov", require: false
+  gem 'coveralls', require: false
 end
 
 if File.exists?('Gemfile.local')

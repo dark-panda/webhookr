@@ -1,5 +1,5 @@
 
-guard 'minitest', :test_folders => 'test', :test_file_patterns => '*_test.rb' do
+guard 'minitest', test_folders: 'test', test_file_patterns: '*_test.rb' do
   watch(%r|^test/(.+)_test\.rb|)
   watch(%r|^test/stubs/(.+)\.rb$|) { "test" }
 
@@ -21,7 +21,7 @@ guard 'livereload' do
   watch('README.html')
 end
 
-guard 'markdown', :convert_on_start => true do
+guard 'markdown', convert_on_start: true do
  watch ('README.md') { "./README.md|./README.html" }
 end
 

@@ -1,3 +1,4 @@
+
 module Webhookr
   module ServiceUnderTest
     class Adapter
@@ -7,12 +8,12 @@ module Webhookr
 
       class << self
         def process(payload)
-          [*payload].collect do |p|
+          [ *payload ].collect do |p|
             p = Rack::Utils.parse_nested_query(p)
             validate(payload)
             OpenStruct.new({
-              :event_type => p["event"],
-              :data => OpenStruct.new(p["data"])
+              event_type: p["event"],
+              data: OpenStruct.new(p["data"])
             })
           end
         end
@@ -22,7 +23,6 @@ module Webhookr
             raise Webhookr::InvalidPayloadError.new("'#{payload}' is not valid")
           end
         end
-
       end
     end
   end
@@ -30,22 +30,20 @@ end
 
 module Webhookr
   module ServiceUnderTest
-
     def stub(options = {})
       ops = {
-        :service_name => "service_under_test",
-        :event_type => "test_event",
-        :email => "jay@example.com"
+        service_name: "service_under_test",
+        event_type: "test_event",
+        email: "foo@example.com"
       }.merge(options)
 
-      OpenStruct.new({
-        :payload => "event=#{ops[:event_type]}&data[email]=#{ops[:email]}",
-        :service_name => ops[:service_name],
-        :event_type => ops[:event_type],
-        :email => ops[:email]
-       })
+      OpenStruct.new(
+        payload: "event=#{ops[:event_type]}&data[email]=#{ops[:email]}",
+        service_name: ops[:service_name],
+        event_type: ops[:event_type],
+        email: ops[:email]
+      )
     end
-
   end
 end
 

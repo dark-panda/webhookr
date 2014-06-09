@@ -1,11 +1,11 @@
+
 require 'test_helper'
 require 'webhookr/ostruct_utils'
 require 'ostruct'
 
 class OstructUtilsTest < ActiveSupport::TestCase
-
   def setup
-    @hash = { :a => { :b => { :c => 1 } }, :a1 => [ { :b1 => { :c1 => 1 } } ] }
+    @hash = { a: { b: { c: 1 } }, a1: [ { b1: { c1: 1 } } ] }
     @converted = Webhookr::OstructUtils.to_ostruct(@hash)
   end
 
@@ -28,5 +28,4 @@ class OstructUtilsTest < ActiveSupport::TestCase
   test "should replace a nested hash in an array" do
     assert(@converted.a1.first.b1.c1 == 1)
   end
-
 end

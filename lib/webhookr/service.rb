@@ -23,12 +23,13 @@ module Webhookr
     end
 
     def method_for(payload)
-      "on_" + payload.event_type
+      "on_#{payload.event_type}"
     end
 
     def callback_class
       callback = Webhookr.config[service_name].try(:callback)
-      raise "No callback is configured for the service '#{service_name}'." if callback.nil?
+      raise Webhookr::MissingCallbackClassError.new(service_name) if callback.nil?
+
       @call_back_class || callback.new
     end
 

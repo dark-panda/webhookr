@@ -39,8 +39,8 @@ namespace :webhookr do
     end
 
     desc 'Install and test all'
-    task :all => [:install, :test_versions]
+    task all: [:install, :test_versions]
   end
 end
 
-task :default => :test
+task default: :test

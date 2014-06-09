@@ -1,7 +1,7 @@
+
 namespace :webhookr do
   desc "List the configured services and paths"
   task :services => :environment do
-
     puts "No webhookr services configured - add and configure webhookr plugins." and next if Webhookr.adapters.empty?
 
     include Webhookr::Engine.routes.url_helpers
@@ -14,3 +14,4 @@ namespace :webhookr do
     end
   end
 end
+
