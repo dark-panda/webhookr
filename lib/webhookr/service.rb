@@ -46,7 +46,8 @@ module Webhookr
       @service_adapter ||= Webhookr.adapters[service_name]
     end
 
-    alias_method :available?, :service_adapter
-
+    def available?
+      !!service_adapter
+    end
   end
 end
