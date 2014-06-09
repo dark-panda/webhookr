@@ -169,7 +169,7 @@ While this gem is currently a 0.x release, suggestion is to require the exact ve
 
 webhookr is released under the [MIT license](http://www.opensource.org/licenses/MIT).
 
-## Author
+## Authors
 
 * [Gerry Power](https://github.com/gerrypower)
 * [J Smith](https://github.com/dark-panda)
