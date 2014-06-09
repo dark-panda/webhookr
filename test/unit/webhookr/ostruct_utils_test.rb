@@ -10,22 +10,22 @@ class OstructUtilsTest < ActiveSupport::TestCase
   end
 
   test "should be an OpenStruct" do
-    assert(@converted.is_a?(OpenStruct))
+    assert_instance_of(OpenStruct, @converted)
   end
 
   test "should have a nested OpenStruct" do
-    assert(@converted.a.is_a?(OpenStruct))
+    assert_instance_of(OpenStruct, @converted.a)
   end
 
   test "should have a nested nested OpenStruct" do
-    assert(@converted.a.b.is_a?(OpenStruct))
+    assert_instance_of(OpenStruct, @converted.a.b)
   end
 
   test "should have a nested nested nested value of 1" do
-    assert(@converted.a.b.c == 1)
+    assert_equal(1, @converted.a.b.c)
   end
 
   test "should replace a nested hash in an array" do
-    assert(@converted.a1.first.b1.c1 == 1)
+    assert_equal(1, @converted.a1.first.b1.c1)
   end
 end
