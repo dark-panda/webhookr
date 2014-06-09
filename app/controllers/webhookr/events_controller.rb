@@ -29,7 +29,7 @@ module Webhookr
           payload: request.body.read,
           security_token: params[:security_token]
         )
-      rescue NameError => e
+      rescue Webhookr::InvalidServiceNameError => e
         raise ActionController::RoutingError.new("No service '#{params[:service_id]}' is available.")
       rescue Webhookr::InvalidSecurityTokenError => e
         raise ActionController::InvalidAuthenticityToken.new("Invalid or missing security token for service '#{params[:service_id]}'.")

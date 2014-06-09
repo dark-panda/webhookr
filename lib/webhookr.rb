@@ -5,6 +5,9 @@ module Webhookr
   extend ActiveSupport::Autoload
 
   autoload :InvalidPayloadError
+  autoload :InvalidSecurityTokenError
+  autoload :InvalidServiceNameError
+  autoload :MissingCallbackClassError
   autoload :AdapterResponse
   autoload :Service
   autoload :VERSION

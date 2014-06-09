@@ -6,14 +6,14 @@ module Webhookr
 
     include Webhookr::ServiceUnderTest
 
-    test "should raise NameError for a nil service" do
-      assert_raise(NameError) {
+    test "should raise Webhookr::InvalidServiceNameError for a nil service" do
+      assert_raise(Webhookr::InvalidServiceNameError) {
         Webhookr::Service.new(nil)
       }
     end
 
-    test "should raise NameError for an unknown service" do
-      assert_raise(NameError) {
+    test "should raise Webhookr::InvalidServiceNameError for an unknown service" do
+      assert_raise(Webhookr::InvalidServiceNameError) {
         Webhookr::Service.new("unknown_service")
       }
     end
@@ -27,9 +27,9 @@ module Webhookr
       }
     end
 
-    test "should raise a Runtime error if there is no callback class configured" do
+    test "should raise a Webhookr::MissingCallbackClassError error if there is no callback class configured" do
       Webhookr::ServiceUnderTest::Adapter.config.callback = nil
-      assert_raise(RuntimeError) {
+      assert_raise(Webhookr::MissingCallbackClassError) {
         Webhookr::Service.new(
           stub.service_name,
           payload: stub.payload

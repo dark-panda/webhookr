@@ -42,7 +42,7 @@ module Webhookr
     end
 
     def service_adapter
-      raise NameError.new(%{Bad service name "#{service_name}"}) unless Webhookr.adapters[service_name]
+      raise Webhookr::InvalidServiceNameError.new(service_name) unless Webhookr.adapters[service_name]
       @service_adapter ||= Webhookr.adapters[service_name]
     end
 

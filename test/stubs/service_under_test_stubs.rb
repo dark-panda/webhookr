@@ -20,7 +20,7 @@ module Webhookr
 
         def validate(payload)
           if payload.nil? || payload == "blort"
-            raise Webhookr::InvalidPayloadError.new("'#{payload}' is not valid")
+            raise Webhookr::InvalidPayloadError.new(payload)
           end
         end
       end
