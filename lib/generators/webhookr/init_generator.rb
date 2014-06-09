@@ -21,9 +21,10 @@ module Webhookr
 eos
       end
 
-      def generate_security_token
-        SecureRandom.hex(32)
-      end
+      private
+        def generate_security_token
+          SecureRandom.hex(32)
+        end
     end
   end
 end
