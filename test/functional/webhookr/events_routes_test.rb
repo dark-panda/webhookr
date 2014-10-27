@@ -29,6 +29,13 @@ module Webhookr
     test ":post route to events with optional :security_token" do
       assert_recognizes(@create_controller_with_token, path: @path_with_token, method: :post)
     end
+
+    test "non-JSON routes" do
+      @show_controller[:format] = "xml"
+      @create_controller[:format] = "xml"
+      assert_recognizes(@show_controller, path: "#{@path}.xml", method: :get)
+      assert_recognizes(@create_controller, path: "#{@path}.xml", method: :post)
+    end
   end
 end
 
