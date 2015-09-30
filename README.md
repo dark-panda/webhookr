@@ -133,6 +133,7 @@ If you are sending sensitive data via webhooks, it is recommended you use HTTPS.
 * MailChimp - [webhookr-mail_chimp](https://github.com/zoocasa/webhookr-mailchimp)
 * Mandrill - [webhookr-mandrill](https://github.com/gerrypower/webhookr-mandrill)
 * Stripe - [webhookr-stripe](https://github.com/gerrypower/webhookr-stripe)
+* Vero - [webhookr-vero](https://github.com/TailorBrands/webhookr-vero)
 * Github - coming soon
 
 ## <a name="works_with"></a>Works with:
