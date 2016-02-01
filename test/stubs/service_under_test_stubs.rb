@@ -19,7 +19,7 @@ module Webhookr
 
         def validate(payload)
           if payload.nil? || payload == "blort"
-            raise Webhookr::InvalidPayloadError.new("'#{payload}' is not valid") 
+            raise Webhookr::InvalidPayloadError.new("'#{payload}' is not valid")
           end
         end
 
@@ -35,7 +35,7 @@ module Webhookr
       ops = {
         :service_name => "service_under_test",
         :event_type => "test_event",
-        :email => "gerry@zoocasa.com"
+        :email => "jay@example.com"
       }.merge(options)
 
       OpenStruct.new({
