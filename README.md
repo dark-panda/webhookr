@@ -1,8 +1,8 @@
 # webhookr: Rails Webhooks Made Easy
-[![Build Status](https://travis-ci.org/zoocasa/webhookr.png?branch=master)](https://travis-ci.org/zoocasa/webhookr)
-[![Dependency Status](https://gemnasium.com/zoocasa/webhookr.png)](https://gemnasium.com/zoocasa/webhookr)
-[![Code Climate](https://codeclimate.com/github/zoocasa/webhookr.png)](https://codeclimate.com/github/zoocasa/webhookr)
-[![Coverage Status](https://coveralls.io/repos/zoocasa/webhookr/badge.png?branch=master)](https://coveralls.io/r/zoocasa/webhookr?branch=master)
+[![Build Status](https://travis-ci.org/dark-panda/webhookr.png?branch=master)](https://travis-ci.org/dark-panda/webhookr)
+[![Dependency Status](https://gemnasium.com/dark-panda/webhookr.png)](https://gemnasium.com/dark-panda/webhookr)
+[![Code Climate](https://codeclimate.com/github/dark-panda/webhookr.png)](https://codeclimate.com/github/dark-panda/webhookr)
+[![Coverage Status](https://coveralls.io/repos/dark-panda/webhookr/badge.png?branch=master)](https://coveralls.io/r/dark-panda/webhookr?branch=master)
 
 ## <a name="introduction"></a>Introduction
 
@@ -59,7 +59,7 @@ end
 ## <a name="usage"></a>Usage & Setup
 
 webhookr works with Rails 3.1 onwards. It generally requires a plugin to be
-useful, such as the [MailChimp plugin](https://github.com/zoocasa/webhookr-mailchimp).
+useful, such as the [MailChimp plugin](https://github.com/dark-panda/webhookr-mailchimp).
 
 ## Setup
 
@@ -130,7 +130,7 @@ If you are sending sensitive data via webhooks, it is recommended you use HTTPS.
 
 ### <a name="supported_services"></a>Supported Services
 
-* MailChimp - [webhookr-mail_chimp](https://github.com/zoocasa/webhookr-mailchimp)
+* MailChimp - [webhookr-mail_chimp](https://github.com/dark-panda/webhookr-mailchimp)
 * Mandrill - [webhookr-mandrill](https://github.com/gerrypower/webhookr-mandrill)
 * Stripe - [webhookr-stripe](https://github.com/gerrypower/webhookr-stripe)
 * Github - coming soon
