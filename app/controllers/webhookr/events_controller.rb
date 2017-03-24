@@ -5,7 +5,7 @@ module Webhookr
       :password => Webhookr.config.basic_auth.password
     ) if Webhookr.config.basic_auth.username && Webhookr.config.basic_auth.password
 
-    before_filter :create_service
+    before_action :create_service
 
     def show
       render :nothing => true
