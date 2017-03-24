@@ -8,6 +8,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
 SimpleCov.command_name("Webhookr Tests")
 SimpleCov.start
 
+Coveralls.wear!
+
 # Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
 

@@ -17,18 +17,18 @@ module Webhookr
 
     test ":get with no service id should return a ActionController::RoutingError" do
       assert_raise(ActionController::RoutingError) {
-        get(:show, {:service_id => ""})
+        get(:show, params: {:service_id => ""})
       }
     end
 
     test ":get with an unknown service id should return a ActionController::RoutingError" do
       assert_raise(ActionController::RoutingError) {
-        get(:show, {:service_id => "blort"})
+        get(:show, params: {:service_id => "blort"})
       }
     end
 
     test ":get with known service id should return success and an empty body" do
-      get(:show, {:service_id => stub.service_name})
+      get(:show, params: {:service_id => stub.service_name})
       assert_response :success
       assert(@response.body.blank?, "Expected an empty reponse, but got'#{@response.body}'")
     end
@@ -36,7 +36,7 @@ module Webhookr
     test ":post with valid payload should return success" do
       PlainOldCallBackClass.reset!
       Webhookr::ServiceUnderTest::Adapter.config.callback = PlainOldCallBackClass
-      post(:create, {
+      post(:create, params: {
                       :service_id => stub.service_name,
                       :event => stub.event_type,
                       :data => { :email => stub.email }
@@ -48,13 +48,13 @@ module Webhookr
     test ":get with :security_token configured and not passed should return :InvalidAuthenticityToken" do
       Webhookr::ServiceUnderTest::Adapter.config.security_token = @security_token
       assert_raise(ActionController::InvalidAuthenticityToken) {
-        get(:show, {:service_id => stub.service_name})
+        get(:show, params: {:service_id => stub.service_name})
       }
     end
 
     test ":get with :security_token configured and passed should return :success" do
       Webhookr::ServiceUnderTest::Adapter.config.security_token = @security_token
-      get(:show, {:service_id => stub.service_name, :security_token => @security_token})
+      get(:show, params: {:service_id => stub.service_name, :security_token => @security_token})
       assert_response(:success)
     end
 
