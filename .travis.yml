@@ -1,15 +1,5 @@
 language: ruby
 rvm:
-  - "1.9.3"
-  - "2.0.0"
-  - "2.1.0"
-  - jruby-19mode # JRuby in 1.9 mode
-  - ruby-head
+  - "2.4.1"
 env:
-  - RAILS_VERSION=4.1.0.beta1 MINITEST_VERSION=5.1.0
-  - RAILS_VERSION=4.0.2
-  - RAILS_VERSION=3.2.15
-  - RAILS_VERSION=3.1.12
-matrix:
-  allow_failures:
-    - rvm: ruby-head
+  - RAILS_VERSION=5.0.1
