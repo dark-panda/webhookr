@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Webhookr
   # Adapted from http://www.rebeccamiller-webster.com/2012/06/recursively-convert-a-ruby-hash-to-openstruct/
   module OstructUtils

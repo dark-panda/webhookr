@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 Webhookr::Engine.routes.draw do
   get "/events/:service_id(/:security_token)" => "events#show",

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support/core_ext/kernel/singleton_class'
 
 module Webhookr
@@ -13,4 +15,3 @@ module Webhookr
     end
   end
 end
-

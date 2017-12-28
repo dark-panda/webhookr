@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'simplecov'
 require 'coveralls'
 
@@ -26,4 +28,3 @@ MiniTest::Reporters.use!(MiniTest::Reporters::SpecReporter.new)
 puts "Webhookr #{Webhookr::VERSION}"
 puts "Rails #{Rails::VERSION::STRING}"
 puts "Ruby #{RUBY_VERSION}-p#{RUBY_PATCHLEVEL} - #{RbConfig::CONFIG['RUBY_INSTALL_NAME']}"
-

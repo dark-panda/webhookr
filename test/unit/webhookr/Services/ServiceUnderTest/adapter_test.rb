@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 require 'stubs/service_under_test_stubs'
 
@@ -13,13 +15,13 @@ module Webhookr
      end
 
       test "should not raise an exception for a valid payload" do
-        assert_nothing_raised { 
+        assert_nothing_raised {
           Webhookr::ServiceUnderTest::Adapter.process(@valid_response)
         }
       end
 
       test "should raise an exception for a invalid payload" do
-        assert_raise(Webhookr::InvalidPayloadError) { 
+        assert_raise(Webhookr::InvalidPayloadError) {
           Webhookr::ServiceUnderTest::Adapter.process(@invalid_response)
         }
       end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module Webhookr
   class EventsController < ActionController::Base
@@ -41,4 +42,3 @@ module Webhookr
     end
   end
 end
-

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module Webhookr::Services::Adapter::Base
   extend ActiveSupport::Concern
@@ -17,4 +18,3 @@ module Webhookr::Services::Adapter::Base
     end
   end
 end
-

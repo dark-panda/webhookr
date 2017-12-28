@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "securecompare"
 require "webhookr/engine"
 
@@ -28,4 +30,3 @@ module Webhookr
 end
 
 require "webhookr/services"
-

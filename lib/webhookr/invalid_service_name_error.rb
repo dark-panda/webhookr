@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module Webhookr
   class InvalidServiceNameError < NameError
@@ -6,4 +7,3 @@ module Webhookr
     end
   end
 end
-

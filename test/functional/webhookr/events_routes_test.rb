@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 require 'test_helper'
 
@@ -38,4 +39,3 @@ module Webhookr
     end
   end
 end
-

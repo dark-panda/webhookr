@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Webhookr
   module Generators
     class InitGenerator < Rails::Generators::NamedBase

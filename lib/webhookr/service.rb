@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Webhookr
   class Service
     attr_reader :service_name

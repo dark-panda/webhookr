@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module Webhookr
   module Generators
@@ -9,4 +10,3 @@ module Webhookr
     end
   end
 end
-
