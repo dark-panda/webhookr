@@ -47,24 +47,20 @@ module Webhookr
 end
 
 class PlainOldCallBackClass
-  @@call_count = 0
-  @@email = nil
+  @call_count = 0
+  @email = nil
 
   def self.reset!
-    @@call_count = 0
-    @@email = nil
+    @call_count = 0
+    @email = nil
   end
 
-  def self.call_count
-    @@call_count
-  end
-
-  def self.email
-    @@email
+  class << self
+    attr_accessor :call_count, :email
   end
 
   def on_test_event(payload)
-    @@call_count += 1
-    @@email = payload.data.email
+    self.class.call_count += 1
+    self.class.email = payload.data.email
   end
 end
