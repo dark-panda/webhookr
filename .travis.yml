@@ -1,13 +1,13 @@
 language: ruby
 rvm:
-  - "1.9.3"
-  - "2.0.0"
-  - jruby-19mode # JRuby in 1.9 mode
-  - ruby-head
+
+  - 2.4.3
+  - 2.3.6
+  - 2.2.9
+  - jruby
 env:
-  - RAILS_VERSION=4.0.0
-  - RAILS_VERSION=3.2.13
-  - RAILS_VERSION=3.1.12
+  - RAILS_VERSION=5.1
+  - RAILS_VERSION=4.2
 matrix:
   allow_failures:
-    - rvm: ruby-head
+    - rvm: jruby
