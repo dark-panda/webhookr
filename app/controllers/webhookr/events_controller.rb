@@ -6,15 +6,19 @@ module Webhookr
       password: Webhookr.config.basic_auth.password
     ) if Webhookr.config.basic_auth.username && Webhookr.config.basic_auth.password
 
-    before_filter :create_service
+    if respond_to?(:before_action)
+      before_action :create_service
+    else
+      before_filter :create_service
+    end
 
     def show
-      render nothing: true
+      render body: nil
     end
 
     def create
       @service.process!
-      render nothing: true
+      render body: nil
     end
 
     private
