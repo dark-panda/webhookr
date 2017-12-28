@@ -4,7 +4,7 @@ module Webhookr::Services::Adapter::Base
   extend ActiveSupport::Concern
 
   included do
-    self.initialize! if self.respond_to?(:initialize!)
+    initialize! if respond_to?(:initialize!)
     Webhookr.adapters[self::SERVICE_NAME] = self
   end
 

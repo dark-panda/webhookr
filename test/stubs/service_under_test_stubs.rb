@@ -12,17 +12,15 @@ module Webhookr
           [ *payload ].collect do |p|
             p = Rack::Utils.parse_nested_query(p)
             validate(payload)
-            OpenStruct.new({
-              event_type: p["event"],
-              data: OpenStruct.new(p["data"])
-            })
+            OpenStruct.new(
+              event_type: p['event'],
+              data: OpenStruct.new(p['data'])
+            )
           end
         end
 
         def validate(payload)
-          if payload.nil? || payload == "blort"
-            raise Webhookr::InvalidPayloadError.new(payload)
-          end
+          raise Webhookr::InvalidPayloadError, payload if payload.nil? || payload == 'blort'
         end
       end
     end
@@ -33,9 +31,9 @@ module Webhookr
   module ServiceUnderTest
     def stub(options = {})
       ops = {
-        service_name: "service_under_test",
-        event_type: "test_event",
-        email: "foo@example.com"
+        service_name: 'service_under_test',
+        event_type: 'test_event',
+        email: 'foo@example.com'
       }.merge(options)
 
       OpenStruct.new(

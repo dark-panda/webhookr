@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "securecompare"
-require "webhookr/engine"
+require 'securecompare'
+require 'webhookr/engine'
 
 module Webhookr
   extend ActiveSupport::Autoload
@@ -29,4 +29,4 @@ module Webhookr
   end
 end
 
-require "webhookr/services"
+require 'webhookr/services'

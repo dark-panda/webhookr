@@ -15,14 +15,15 @@ module Webhookr
           # Webhookr Initializer
 
           ## Turn on http basic authentication for all plugins
-            # Webhookr.config.basic_auth.username = "admin"
-            # Webhookr.config.basic_auth.password = "password"
+          # Webhookr.config.basic_auth.username = "admin"
+          # Webhookr.config.basic_auth.password = "password"
 
-            ## Plugin Initializers go here ##
+          ## Plugin Initializers go here ##
         eos
       end
 
       private
+
         def generate_security_token
           SecureRandom.hex(32)
         end
