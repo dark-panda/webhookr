@@ -11,7 +11,7 @@ module Webhookr
       end
 
       def file_contents
-        <<-eos
+        <<~RUBY
           # Webhookr Initializer
 
           ## Turn on http basic authentication for all plugins
@@ -19,7 +19,7 @@ module Webhookr
           # Webhookr.config.basic_auth.password = "password"
 
           ## Plugin Initializers go here ##
-        eos
+        RUBY
       end
 
       private

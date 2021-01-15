@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 
 guard 'minitest', test_folders: 'test', test_file_patterns: '*_test.rb' do
-  watch(%r|^test/(.+)_test\.rb|)
-  watch(%r|^test/stubs/(.+)\.rb$|) { 'test' }
+  watch(%r{^test/(.+)_test\.rb})
+  watch(%r{^test/stubs/(.+)\.rb$}) { 'test' }
 
   # Rails
   watch(%r{^app/models/(.+)\.rb$}) do |m|

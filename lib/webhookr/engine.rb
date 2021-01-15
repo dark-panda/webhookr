@@ -12,6 +12,7 @@ module Webhookr
     config.webhookr.basic_auth = ActiveSupport::OrderedOptions.new
 
     initializer 'webhookr.config' do |app|
+      # no-op
     end
   end
 end

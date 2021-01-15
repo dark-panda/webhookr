@@ -9,7 +9,7 @@ module Webhookr
 
       class << self
         def process(payload)
-          [ *payload ].collect do |p|
+          Array.wrap(payload).collect do |p|
             p = Rack::Utils.parse_nested_query(p)
             validate(payload)
             OpenStruct.new(

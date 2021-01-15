@@ -21,8 +21,8 @@ class InitGeneratorTest < Rails::Generators::TestCase
 
   test 'it should have authorization information' do
     assert_file @initializer do |content|
-      assert_match(%r{basic_auth\.username}, content)
-      assert_match(%r{basic_auth\.password}, content)
+      assert_match('basic_auth.username', content)
+      assert_match('basic_auth.password', content)
     end
   end
 end

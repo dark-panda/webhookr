@@ -1,5 +1,4 @@
-
-# -*- ruby -*-
+# frozen_string_literal: true
 
 require 'rubygems'
 require 'rubygems/package_task'
@@ -27,7 +26,7 @@ Rake::RDocTask.new do |t|
 end
 
 namespace :webhookr do
-  namespace:test do
+  namespace :test do
     desc 'Install gems in all Rubies'
     task :install do
       sh %{rbenv each -v bundle install}

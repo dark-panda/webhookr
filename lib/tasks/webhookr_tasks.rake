@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 namespace :webhookr do
   desc 'List the configured services and paths'
